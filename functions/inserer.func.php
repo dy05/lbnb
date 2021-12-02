@@ -1,24 +1,24 @@
 <?php
-function afficher_articles(){
+function show_articles(){
 $articles = array();
-$query = mysql_query("SELECT * FROM articles WHERE id_article='{$_GET['id']}'");
-while($row = mysql_fetch_assoc($query))
+$query = mysqli_query(get_mysqli(), "SELECT * FROM articles WHERE id_article='{$_GET['id']}'");
+while($row = mysqli_fetch_assoc($query))
 {
 $articles[] = $row;
 }
 return $articles;
 }
 
-function inserer_commentaire($pseudo,$commentaire){
-$avatar == 
-mysql_query("INSERT INTO commentaires VALUES('','{$_GET['id']}','$pseudo','$commentaire','$avatar',NOW())") or die(mysql_error());
+function add_comment($pseudo,$comment){
+$avatar ==
+mysqli_query(get_mysqli(), "INSERT INTO comments VALUES('','{$_GET['id']}','$pseudo','$comment','$avatar',NOW())") or die(mysqli_error());
 }
-function afficher_commentaires(){
-$commentaires = array();
-$query = mysql_query("SELECT * FROM commentaires WHERE id_article = '{$_GET['id']}' ORDER BY date");
-while($row = mysql_fetch_assoc($query)){
-$commentaires[] = $row;
+function show_comments(){
+$comments = array();
+$query = mysqli_query(get_mysqli(), "SELECT * FROM comments WHERE id_article = '{$_GET['id']}' ORDER BY date");
+while($row = mysqli_fetch_assoc($query)){
+$comments[] = $row;
 }
-return $commentaires;
+return $comments;
 }
 ?>

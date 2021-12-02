@@ -3,11 +3,11 @@ include('body/menu.php');
 include('body/header.php');
 ?>
 <?php
-//la function qui va nous permettre de supprimer un commentaire
-function supprimer_commentaire()
+//la function qui va nous permettre de supprimer un comment
+function supprimer_comment()
 {
-	mysql_query("
-	DELETE FROM commentaires WHERE (pseudo='{$_SESSION['pseudo']}' AND id_commentaire='{$_GET['pseudo']}')
+	mysqli_query(get_mysqli(), "
+	DELETE FROM comments WHERE (pseudo='{$_SESSION['pseudo']}' AND id_comment='{$_GET['pseudo']}')
 	OR  (pseudo_exp='{$_GET['pseudo']}' AND pseudo_dest='{$_SESSION['pseudo']}')
 	");
 }
@@ -17,31 +17,31 @@ function supprimer_commentaire()
 <h1><a href="javascript:history.back()">Page précédente</a> </h1>
 
 <?php
-$articles = afficher_articles();
+$articles = show_articles();
 foreach($articles as $article){
 echo "<p id='article'><u><h2>Article:</h2>".$article['corps']."</p><br/>";
 ?>
 <hr/>
 <?php
 
-$commentaires = afficher_commentaires();
-foreach($commentaires as $commentaire){
-echo "<p id='comment_man'>Publié par <u>".$commentaire['pseudo']."</u></p><br/><br/><p id='comment'>". $commentaire['corps']."<br/></p>";
+$comments = show_comments();
+foreach($comments as $comment){
+echo "<p id='comment_man'>Publié par <u>".$comment['pseudo']."</u></p><br/><br/><p id='comment'>". $comment['corps']."<br/></p>";
 if (isset($_SESSION['pseudo'])) {
 if ($_SESSION['pseudo'] == $admin) {
 echo"
- Le : ".date('d/m/Y à H:i:s',strtotime($commentaire['date']))."<br/>";
+ Le : ".date('d/m/Y à H:i:s',strtotime($comment['date']))."<br/>";
 }}
 }
 }
 
 if(isset($_POST['submit'])){
 
-$pseudo = htmlspecialchars(trim(mysql_real_escape_string($_POST['pseudo'])));
-$commentaire = htmlspecialchars(trim(mysql_real_escape_string($_POST['commentaire'])));
+$pseudo = htmlspecialchars(trim(mysqli_real_escape_string($_POST['pseudo'])));
+$comment = htmlspecialchars(trim(mysqli_real_escape_string($_POST['comment'])));
 
 
-inserer_commentaire($pseudo,$commentaire);
+add_comment($pseudo,$comment);
 header("Location:index.php?page=contenu&id={$_GET['id']}");
 }
 ?>
@@ -53,8 +53,8 @@ header("Location:index.php?page=contenu&id={$_GET['id']}");
 echo $_SESSION['pseudo'];}else{echo"Anonyme";
 } ?>" disable/></p><br/>
 
-<label for="commentaire">Votre commentaire:</label><br/>
-<textarea name="commentaire" cols="20" rows="7" placeholder="Rien à signaler"autofocus required></textarea><br/><br/>
+<label for="comment">Votre comment:</label><br/>
+<textarea name="comment" cols="20" rows="7" placeholder="Rien à signaler"autofocus required></textarea><br/><br/>
 
 <input type="submit" name="submit" value="Commenter"/>
 

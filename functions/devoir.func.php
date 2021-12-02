@@ -1,5 +1,5 @@
 <?php
-$infos = infos_membre_connecte();
+$infos = auth_user_info();
 
 
 if(!isset($_SESSION['pseudo']))

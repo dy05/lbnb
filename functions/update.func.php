@@ -1,11 +1,11 @@
 <?php
-//la function qui changer les informations du membre
+//la function qui changer les informations du member
 
-function changer_informations_membre($email,$situation,$apropos)
+function changer_informations_member($email,$situation,$apropos)
 {
-	$query = mysql_query("UPDATE utilisateurs SET email='$email',situation='$situation',apropos='$apropos'
+	$query = mysqli_query(get_mysqli(), "UPDATE utilisateurs SET email='$email',situation='$situation',apropos='$apropos'
 	WHERE pseudo='{$_SESSION['pseudo']}'
-	") or die(mysql_error());
+	") or die(mysqli_error());
 }
 ?>
 

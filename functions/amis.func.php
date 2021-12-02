@@ -3,12 +3,12 @@
 function liste_amis_exp()
 {
 	$results = array();
-	$query = mysql_query("
+	$query = mysqli_query(get_mysqli(), "
 	SELECT pseudo_dest,avatar FROM amis
 	INNER JOIN utilisateurs ON utilisateurs.pseudo = amis.pseudo_dest
 	WHERE pseudo_exp='{$_SESSION['pseudo']}' AND active=1
 	");
-	while($row = mysql_fetch_assoc($query))
+	while($row = mysqli_fetch_assoc($query))
 	{
 		$results[]=$row;
 	}
@@ -18,12 +18,12 @@ function liste_amis_exp()
 function liste_amis_dest()
 {
 	$results = array();
-	$query = mysql_query("
+	$query = mysqli_query(get_mysqli(), "
 	SELECT pseudo_exp,avatar FROM amis
 	INNER JOIN utilisateurs ON utilisateurs.pseudo = amis.pseudo_exp
 	WHERE pseudo_dest='{$_SESSION['pseudo']}' AND active=1
 	");
-	while($row = mysql_fetch_assoc($query))
+	while($row = mysqli_fetch_assoc($query))
 	{
 		$results[]=$row;
 	}

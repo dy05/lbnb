@@ -2,7 +2,7 @@
 //la function qui va recuperer les invitations
 function recup_invitations()
 {
-	$query = mysql_query("
+	$query = mysqli_query(get_mysqli(), "
 	SELECT pseudo_exp,date_invitation,active,avatar
 	FROM amis
 	INNER JOIN utilisateurs ON utilisateurs.pseudo = amis.pseudo_exp
@@ -10,20 +10,20 @@ function recup_invitations()
 	ORDER BY date_invitation DESC
 	");
 	$results = array();
-	while($row = mysql_fetch_assoc($query))
+	while($row = mysqli_fetch_assoc($query))
 	{
 		$results[] = $row;
 	}
 		return $results;
 }
-//la function qui va nous permettre d'afficher à l'utilisateur si sa demande a été acceptée
+//la function qui va nous permettre d'afficher ï¿½ l'utilisateur si sa demande a ï¿½tï¿½ acceptï¿½e
 function invitation_acceptee()
 {
-	$query = mysql_query("
+	$query = mysqli_query(get_mysqli(), "
 	SELECT pseudo_dest FROM amis WHERE pseudo_exp='{$_SESSION['pseudo']}' AND active=1
 	");
 	$results = array();
-	while($row = mysql_fetch_assoc($query))
+	while($row = mysqli_fetch_assoc($query))
 	{
 		$results[] = $row;
 	}

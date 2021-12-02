@@ -7,11 +7,11 @@ if (!isset($_SESSION['pseudo'])) {
 	
 	if(isset($_POST['submit']))
 	{
-				$email = mysql_real_escape_string(htmlentities(trim($_POST['email'])));
-				$apropos = mysql_real_escape_string(htmlentities(trim($_POST['apropos'])));
-				$situation = mysql_real_escape_string(htmlspecialchars(trim($_POST['situation'])));
-				changer_informations_membre($email,$situation,$apropos);
-				header("Location:index.php?page=membre");
+				$email = mysqli_real_escape_string(htmlentities(trim($_POST['email'])));
+				$apropos = mysqli_real_escape_string(htmlentities(trim($_POST['apropos'])));
+				$situation = mysqli_real_escape_string(htmlspecialchars(trim($_POST['situation'])));
+				changer_informations_member($email,$situation,$apropos);
+				header("Location:index.php?page=member");
 	}
 ?>
 <br/><br/>

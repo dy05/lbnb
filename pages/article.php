@@ -8,7 +8,7 @@ include('body/header.php');
 <div class="span1"></div>
 <div class="span8 register alert alert-info">
 <?php
-$articles = afficher_articles();
+$articles = show_articles();
 foreach($articles as $article){
 ?>
 <div class="panel panel-default">
@@ -43,25 +43,25 @@ Publié par <strong>
 <?php
     echo "le : ".date('d/m/Y',strtotime($article['date']));
 ?>
-<span class="pull-right"><b class="icon-comment"></b>  commentaires</span>
+<span class="pull-right"><b class="icon-comment"></b>  comments</span>
 </div>
 </div>
 <?php
-//la function qui va nous permettre de supprimer un commentaire
-function supprimer_commentaire()
+//la function qui va nous permettre de supprimer un comment
+function supprimer_comment()
 {
-	mysql_query("DELETE FROM commentaires WHERE (pseudo='{$_SESSION['pseudo']}' AND id_commentaire='{$_GET['pseudo']}')
+	mysqli_query(get_mysqli(), "DELETE FROM comments WHERE (pseudo='{$_SESSION['pseudo']}' AND id_comment='{$_GET['pseudo']}')
 	OR  (pseudo_exp='{$_GET['pseudo']}' AND pseudo_dest='{$_SESSION['pseudo']}')
 	");
 }
-$commentaires = afficher_commentaires();
-foreach($commentaires as $commentaire){
-echo "<div class='alert alert-error'><strong>".$commentaire['pseudo']."</strong><br/><span>". $commentaire['corps']."</span></div><br/>";
+$comments = show_comments();
+foreach($comments as $comment){
+echo "<div class='alert alert-error'><strong>".$comment['pseudo']."</strong><br/><span>". $comment['corps']."</span></div><br/>";
 }
 if(isset($_POST['submit'])){
-$pseudo = htmlspecialchars(trim(mysql_real_escape_string($_POST['pseudo'])));
-$commentaire = htmlspecialchars(trim(mysql_real_escape_string($_POST['commentaire'])));
-inserer_commentaire($pseudo,$commentaire);
+$pseudo = htmlspecialchars(trim(mysqli_real_escape_string($_POST['pseudo'])));
+$comment = htmlspecialchars(trim(mysqli_real_escape_string($_POST['comment'])));
+add_comment($pseudo,$comment);
 header("Location:index.php?page=article&article={$_GET['article']}");
 }
 ?>
@@ -73,8 +73,8 @@ header("Location:index.php?page=article&article={$_GET['article']}");
 <input type="text" name="pseudo" value="<?php if (isset($_SESSION['pseudo'])) {
 echo $_SESSION['pseudo'];}else{echo"Anonyme";} ?>"/></p><br/>
 
-<label for="commentaire">Votre commentaire:</label><br/>
-<textarea name="commentaire" cols="20" rows="7" placeholder="Rien à signaler" required></textarea><br/><br/>
+<label for="comment">Votre comment:</label><br/>
+<textarea name="comment" cols="20" rows="7" placeholder="Rien à signaler" required></textarea><br/><br/>
 
 <input type="submit" name="submit" class="btn btn-primary" value="Commenter"/>
 

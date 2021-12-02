@@ -6,9 +6,9 @@ if (!isset($_SESSION['pseudo'])) {
 }
 ?><br/>
 <div class="row"><div class="span2"></div><div class="span7 register alert alert-info text-center">
-<h2>La liste des membres</h2>
+<h2>La liste des members</h2>
 <?php
-$pseudos_avatars = recuperer_pseudo_avatar();
+$pseudos_avatars = get_pseudo_avatar();
 	
 	foreach($pseudos_avatars as $pseudo_avatar)
 	{

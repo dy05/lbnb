@@ -2,7 +2,7 @@
 //la function qui va modifier l'article
 function supprimer_article()
 {
-	mysql_query("
+	mysqli_query(get_mysqli(), "
 	DELETE FROM articles WHERE (id_article='{$_GET['id']}')
 	");
 }

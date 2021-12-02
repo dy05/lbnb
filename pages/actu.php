@@ -20,7 +20,7 @@ if(!empty($avatar))
 	$image_ext = strtolower(end(explode('.',$avatar)));
 	if(in_array($image_ext,array('jpg','jpeg','png','gif')))
 	{
-	inserer_acticle($nom,$title,$article,$avatar_tmp,$avatar);
+	add_article($nom,$title,$article,$avatar_tmp,$avatar);
 	header("Location:index.php?page=actu");
 	}else{
 	echo"<div class='error'>Veuillez saisir une image valide</div>";
@@ -28,7 +28,7 @@ if(!empty($avatar))
 }else{
 	$imge = "nouveau.png";
 
-	inserer($nom,$title,$article,$imge);
+	add($nom,$title,$article,$imge);
 	header("Location:index.php?page=actu");
 }
 }
@@ -49,7 +49,7 @@ if($info['admin'] == '1'){
 <input type="text" name="nom" value='<?php echo $admin; ?>' required>
 <!-- <b class="icon-chevron-right"></b>
 
-  Ou tapez le nom de celui ou celle qui a fait(e) la requête! 
+  Ou tapez le nom de celui ou celle qui a fait(e) la requête!
 
 <i>*Mettez <u><b>Anonyme</b></u> au cas où la personne ne veut pas divulguer son identité!</i>
 
@@ -74,9 +74,9 @@ if($info['admin'] == '1'){
 <div class="row">
 <div class="span2"></div>
 <div class="span7 register alert alert-info">
-<h2>ACTUALITES</h2>			
+<h2>ACTUALITES</h2>
 <?php
-$articles = afficher_articles();
+$articles = show_articles();
 foreach($articles as $article){
 ?>
 <div class="panel panel-default">
@@ -95,7 +95,7 @@ if($info['admin'] == '1'){
 }}}
 ?>
 </span>
-<div class="panel-body">		
+<div class="panel-body">
 <div class="console">
 <?php echo $article['corps']; ?>
 </div><br><br>
@@ -112,7 +112,7 @@ Merci</div>
     echo "le : ".date('d/m/Y',strtotime($article['date']));
 ?>
 <a href="index.php?page=article&article=<?php echo $article['id_article']; ?>" class="btn btn-info btn-mini pull-right" style="margin-left: 10px;"><span class="icon-eye-open"></span> Lire l'article</a>
-<span class="pull-right"><b class="icon-comment"></b>  commentaires</span>
+<span class="pull-right"><b class="icon-comment"></b>  comments</span>
 </div>
 </div>
 <?php

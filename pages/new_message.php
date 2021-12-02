@@ -13,8 +13,8 @@ if (!isset($_SESSION['pseudo'])) {
 	{
 			if(isset($_POST['submit']))
 			{
-				$sujet = mysql_real_escape_string(htmlentities(trim($_POST['sujet'])));
-				$message = mysql_real_escape_string(htmlentities(trim($_POST['message'])));
+				$sujet = mysqli_real_escape_string(htmlentities(trim($_POST['sujet'])));
+				$message = mysqli_real_escape_string(htmlentities(trim($_POST['message'])));
 					if(!empty($sujet) && !empty($message))
 					{
 						 creer_conversation($sujet,$message);
@@ -24,7 +24,7 @@ if (!isset($_SESSION['pseudo'])) {
 					}
 			}
 	}else{
-		header("Location:index.php?page=membre");
+		header("Location:index.php?page=member");
 	}
 ?>
 <form method='post' action=''>

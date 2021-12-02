@@ -1,17 +1,17 @@
 ﻿<?php
-include('functions/connecte.php');
+include('functions/Db.php');
 include('functions/ibi.func.php');
-include('functions/membre.php');
+include('functions/member.php');
 
 
 if (isset($_SESSION['pseudo'])) {
-	
+
 function admin()
 {
 	$pseudo = $_SESSION['pseudo'];
 	$results = array();
-	$query = mysql_query("SELECT * FROM utilisateurs WHERE pseudo='$pseudo'");
-		while($row = mysql_fetch_assoc($query))
+	$query = mysqli_query(get_mysqli(), "SELECT * FROM utilisateurs WHERE pseudo='$pseudo'");
+		while($row = mysqli_fetch_assoc($query))
 	{
 		$results[] = $row;
 	}
@@ -36,8 +36,8 @@ if(!empty($page) && in_array($_GET['page'].'.php',$pages))
 }else{
 	header('Location:index.php?page=home');
 }
-if(isset($_SESSION['pseudo']) && $page != 'membre' && $page != 'contact' && $page != 'about' && $page != 'charte' && $page != 'chart' && $page != 'update' && $page != 'update_avatar'
-&& $page !='liste_membre' && $page !='profile' && $page !='envoi' && $page !='annuler' && $page !='invitations'
+if(isset($_SESSION['pseudo']) && $page != 'member' && $page != 'contact' && $page != 'about' && $page != 'charte' && $page != 'chart' && $page != 'update' && $page != 'update_avatar'
+&& $page !='liste_member' && $page !='profile' && $page !='envoi' && $page !='annuler' && $page !='invitations'
 && $page !='accepter' && $page !='refuser' && $page !='amis' && $page !='supprimer_amis' && $page !='new_message' && $page !='actu' && $page !='article'
 && $page !='conversations' && $page !='message' && $page !='repondre' && $page !='home' && $page != 'contenu' && $page != 'pub' && $page != 'tchat')
 {
@@ -46,7 +46,7 @@ if(isset($_SESSION['pseudo']) && $page != 'membre' && $page != 'contact' && $pag
 ?>
 <!DOCTYPE html>
 	<html lang="fr-FR">
-	<head>    
+	<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="reply-to" content="cilbnb@lbnb.net">
 	<meta charset="utf-8">
@@ -82,13 +82,13 @@ if(isset($_SESSION['pseudo']) && $page != 'membre' && $page != 'contact' && $pag
 	}
 
 -->
-	<title>Lyc&eacute;e Bilingue de NEW-BELL 
+	<title>Lyc&eacute;e Bilingue de NEW-BELL
 	<?php
 	if($_GET['page'] == 'home'){
 		$title = 'Accueil';
 	}else if($_GET['page'] == 'actu'){
 		$title = 'Actualités';
-	}else if($_GET['page'] == 'membre'){
+	}else if($_GET['page'] == 'member'){
 		$title = 'Mon profil';
 	}else if($_GET['page'] == 'login'){
 		$title = 'Connexion';
@@ -112,7 +112,7 @@ if(isset($_SESSION['pseudo']) && $page != 'membre' && $page != 'contact' && $pag
 				<?php
 						include($content);
 				?>
-	</div>        
+	</div>
     </div>
     Ici c'est pour gerer le site mais ce nest pas encore programmer.
 	<?php
@@ -120,4 +120,3 @@ include('foot.php');
 	?>
 </body>
 </html>
-        

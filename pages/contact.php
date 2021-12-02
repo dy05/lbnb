@@ -41,9 +41,9 @@ Ce site a été réalisé par le département #InternetLight du Club Informatiqu
 
 	if(isset($_POST['submit']))
 		{
-			$nom = mysql_real_escape_string(htmlspecialchars(trim($_POST['nom'])));
-			$email = mysql_real_escape_string(htmlentities(trim($_POST['email'])));
-			$msg = mysql_real_escape_string(htmlentities(trim($_POST['message'])));
+			$nom = mysqli_real_escape_string(htmlspecialchars(trim($_POST['nom'])));
+			$email = mysqli_real_escape_string(htmlentities(trim($_POST['email'])));
+			$msg = mysqli_real_escape_string(htmlentities(trim($_POST['message'])));
             $destinataire = "cilbnb@lbnb.net";
             $objet = "Sugestion concernant le site du LBNB" ;
  

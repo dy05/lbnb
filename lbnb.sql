@@ -72,16 +72,16 @@ INSERT INTO `articles` (`id_article`, `pseudo`, `title`, `corps`, `date`, `avata
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaires`
+-- Structure de la table `comments`
 --
 
-CREATE TABLE IF NOT EXISTS `commentaires` (
-  `id_commentaire` int(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id_comment` int(20) NOT NULL AUTO_INCREMENT,
   `id_article` int(20) NOT NULL,
   `pseudo` varchar(250) NOT NULL,
   `corps` text NOT NULL,
   `date` datetime NOT NULL,
-  PRIMARY KEY (`id_commentaire`)
+  PRIMARY KEY (`id_comment`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -106,20 +106,20 @@ INSERT INTO `conversations` (`id_conversation`, `sujet_conversation`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `conversations_membres`
+-- Structure de la table `conversations_members`
 --
 
-CREATE TABLE IF NOT EXISTS `conversations_membres` (
+CREATE TABLE IF NOT EXISTS `conversations_members` (
   `id_conversation` int(10) NOT NULL AUTO_INCREMENT,
   `pseudo_dest` varchar(100) NOT NULL,
   PRIMARY KEY (`id_conversation`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Contenu de la table `conversations_membres`
+-- Contenu de la table `conversations_members`
 --
 
-INSERT INTO `conversations_membres` (`id_conversation`, `pseudo_dest`) VALUES
+INSERT INTO `conversations_members` (`id_conversation`, `pseudo_dest`) VALUES
 (1, 'cilbnb');
 
 -- --------------------------------------------------------

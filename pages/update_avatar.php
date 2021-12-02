@@ -20,7 +20,7 @@ if (!isset($_SESSION['pseudo'])) {
 				if(in_array($image_ext,array('jpg','jpeg','png','gif')))
 				{
 						modifier_image_profile($avatar_tmp,$avatar);
-						header("Location:index.php?page=membre");
+						header("Location:index.php?page=member");
 				}else{
 					echo"<div class='error'>Veuillez saisir une image valide</div>";
 				}

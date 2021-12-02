@@ -10,15 +10,15 @@ include('body/header.php');
 		
 		if(isset($_POST['submit']))
 		{
-				$sexe = mysql_real_escape_string(htmlspecialchars(trim($_POST['sexe'])));
-				$pseudo = mysql_real_escape_string(htmlentities(trim($_POST['pseudo'])));
-				$nom = mysql_real_escape_string(htmlentities(trim($_POST['nom'])));
-				$password = mysql_real_escape_string(htmlentities(trim($_POST['password'])));
-				$rpassword = mysql_real_escape_string(htmlentities(trim($_POST['rpassword'])));
-				$age = mysql_real_escape_string(htmlentities(trim($_POST['age'])));
-				$email = mysql_real_escape_string(htmlentities(trim($_POST['email'])));
-				$apropos = mysql_real_escape_string(htmlentities(trim($_POST['apropos'])));
-				$situation = mysql_real_escape_string(htmlspecialchars(trim($_POST['situation'])));
+				$sexe = mysqli_real_escape_string(htmlspecialchars(trim($_POST['sexe'])));
+				$pseudo = mysqli_real_escape_string(htmlentities(trim($_POST['pseudo'])));
+				$nom = mysqli_real_escape_string(htmlentities(trim($_POST['nom'])));
+				$password = mysqli_real_escape_string(htmlentities(trim($_POST['password'])));
+				$rpassword = mysqli_real_escape_string(htmlentities(trim($_POST['rpassword'])));
+				$age = mysqli_real_escape_string(htmlentities(trim($_POST['age'])));
+				$email = mysqli_real_escape_string(htmlentities(trim($_POST['email'])));
+				$apropos = mysqli_real_escape_string(htmlentities(trim($_POST['apropos'])));
+				$situation = mysqli_real_escape_string(htmlspecialchars(trim($_POST['situation'])));
 				
 				
 				
@@ -174,7 +174,7 @@ include("pages/chart.php");
  
             // On définit les paramètres de l'e-mail.
             $email = $_POST['email'];
-            $message = 'Pour valider votre inscription à la newsletter de LBNB.NET, <a href="http://www.lbnb.net/index.php?page=register&amp;tru=1&amp;email='.$email.'">cliquez ici</a><br><br><br><u><b>
+            $message = 'Pour valider votre inscription à la newsletter de LBNB.NET, <a href="index.php?page=register&amp;tru=1&amp;email='.$email.'">cliquez ici</a><br><br><br><u><b>
                 La Team de gestion du LBNB SOCIAL NETWORK.</b></u>
       .';
  
