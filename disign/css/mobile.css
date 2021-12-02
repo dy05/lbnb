@@ -1,0 +1,108 @@
+/* .lert {
+  padding: 3px 3px 1px 3px;
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+}
+header{
+	margin-bottom: 10px;
+}
+.page{
+	width: 900px;
+    margin: 10px auto;
+    padding: 10px;
+    color: #444444;
+    background-color: #EEEEEE;
+}
+#page{
+	background-color: #FFFFFF;
+	padding: 12px;
+}
+.footer{
+    padding: 6px ;
+    margin-top: 20px;
+    background-color: #FFF;
+}
+.rs{
+	width: 25px;
+	height: 25px;
+}
+.logo{
+	width: 50px;
+	height: 40px;
+	margin-right: 0px;
+}
+.img{
+	width: 120px;
+	height: 120px;
+	padding: 10px;
+}
+.img1{
+	width: 250px;
+	height: 150px;
+}
+.admin{
+	line-height: 1.5;
+	margin:0;
+	width:100%;
+	padding:2em 2em 1em 2em;
+	color:#333;
+	overflow:hidden;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;    
+	border-top:2px dashed #ccc;
+	border-bottom:2px dashed #ccc;
+	border-left:2px dashed #ccc;
+	border-right:2px dashed #ccc;
+	background-color: white;
+}
+.contact{
+	width: 400px;
+	background-color: #fff;
+	font-family:Verdana,Georgia,Serif;
+	margin-left: 40px;
+	margin-top: 20px;
+	padding: 10px;
+}
+#contact{
+	margin-left: 40px;
+}
+.corp{
+	background:#eee;
+	border:10px solid #6699ff;
+}
+.date{
+	color:#666; margin-top:-17px; margin-bottom:9px; font-size:0.8em
+}
+.error{
+	width: 300px;
+    color: blue;
+    padding-top: 0;
+    background-color: #DDD;
+    padding-top: 5px;
+    margin-top: 7px;
+    margin-bottom: 7px; 
+}
+#imge{
+	float: center;
+	width: 900px;
+	height: 250px;
+}
+.register{
+	background-color: #DDD;
+	width: 600px;
+	border: 2px solid #EEE;
+}
+.picture_avatar{
+	width: 250px;
+	height: 250px;
+	border-radius: 50px 50px 50px 50px; 
+}
+.com{
+	width: 100px;
+}
+
+*/

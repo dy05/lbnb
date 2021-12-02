@@ -1,0 +1,50 @@
+.body{
+	background-color:pink;
+}
+#img{
+	height:350px;
+	width:800px;
+	}
+#font{
+	background-color:#EEE;
+	padding-bottom:5px;
+	padding-top:5px;
+	border:10px;
+}
+.back{
+	background-color:#FFF;
+	width: 900px;
+    margin: 10px auto;
+    padding: 10px;
+    color: #444444;
+    
+}
+h1 b{color:purple;
+
+}
+#madeof{color:purple;
+}
+.copy{
+	padding-top:20px;
+	background-color:#EEE;
+	color:blue;
+	text-align:center;
+	  padding: 3px 3px 1px 3px;
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+}
+#welcome{
+	color:brown;
+	font-size:45px;
+	text-align:center;
+
+
+}
+
+
+
+
